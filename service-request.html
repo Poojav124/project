@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Request</title>
+    <link rel="stylesheet" href="service-request.css">
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="location.href='index.html'">Home</button>
+        <button onclick="location.href='about.html'">About Us</button>
+        <button onclick="location.href='services.html'">Our Services</button>
+    </div>
+
+    <div class="form-container">
+        <h1>Service Request Form</h1>
+        <form id="serviceRequestForm" >
+          
+            
+          
+                <!-- Left Section -->
+                <form id="customerForm" onsubmit="return validateCustomerName()">
+                <div class="form-left"></div>
+            <label for="customerName">Customer Name(3-50 characters, only alphabets):</label>
+            <input type="text" id="customerName" placeholder="Enter your name" required>
+            <div id="customerName-error" class="error-message"></div>
+            
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
+
+            <label for="date">Date:(dd-mm-yyyy)</label>
+            <input type="date" id="date" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" placeholder="Enter your address" required></textarea>
+
+            <!-- Right Section -->
+            <div class="form-right">
+            <label for="carBrand">Car Brand:</label>
+            <select id="carBrand" onchange="loadCarModels()">
+                <option value="">Choose Brand</option>
+                <option value="toyota">Toyota</option>
+                <option value="honda">Honda</option>
+                <option value="ford">Ford</option>
+            </select>
+                
+          
+            <label for="carModel">Car Model:</label>
+            <select id="carModel">
+                <option value="">Choose Model</option>
+                <option value="Accord">Accord</option>
+                <option value="Alitma">Alitma</option>
+                <option value="camry">camry</option>
+
+            </select>
+
+            <label for="fuelType">Fuel Type:</label>
+            <select id="fuelType" >
+                <option value="">Choose Fuel</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Electric">Electric</option>
+            </select>
+
+            <label for="serviceType">Service Type:</label>
+            <select id="serviceType" required>
+                <option value="" disabled selected>Select Service Type</option>
+                <option value="Basic Service">Basic Service</option>
+                <option value="Standard Service">Standard Service</option>
+                <option value="Comprehensive Service">Comprehensive Service</option>
+                <option value="Running Repair">Running Repair</option>
+                <option value="Jump Start">Jump Start</option>
+                <option value="Puncture">Puncture</option>
+                
+            </select>
+
+            <div class="form-buttons">
+                
+                <button type="button" id="closeForm" onclick="closeForm()">Close</button>
+            </div>
+        </form>
+</form>
+        <button id="sendRequestButton">Send Request</button>
+        <script>
+
+          
+ // Validate the Customer Name field
+ function validateCustomerName() {
+            let valid = true;
+
+            // Clear any previous error messages
+            document.getElementById("customerName-error").textContent = "";
+
+            // Get the value of the customer name input
+            const customerName = document.getElementById("customerName").value;
+
+            // Check if the customer name is empty
+            if (customerName.trim() === "") {
+                document.getElementById("customerName-error").textContent = "Customer name is required.";
+                valid = false;
+            }
+            // Check if the customer name length is within the range of 3 to 50 characters
+            else if (customerName.length < 3 || customerName.length > 50) {
+                document.getElementById("customerName-error").textContent = "Customer name must be between 3 and 50 characters.";
+                valid = false;
+            }
+            // Check if the customer name contains only alphabetic characters
+            else if (!/^[A-Za-z\s]+$/.test(customerName)) {
+                document.getElementById("customerName-error").textContent = "Customer name must contain only alphabetic characters and spaces.";
+                valid = false;
+            }
+
+            // Return true if validation is successful, false to prevent form submission
+            return valid;
+        }
+          // JavaScript fetch request
+          document.getElementById('service-request-form').addEventListener('submit', function (e) {
+            e.preventDefault();  // Prevent form from submitting the default way
+            
+            // Create a FormData object to collect form data
+            const formData = new FormData(this);
+            
+            // Prepare the data to be sent in the request body
+            const data = {
+              customer_name: formData.get('customer_name'),
+              car_model: formData.get('car_model'),
+              issue_description: formData.get('issue_description'),
+              appointment_date: formData.get('appointment_date'),
+            };
+        
+            // Send the data to the server using fetch
+            fetch('http://localhost:2600/api/service-request', {  // URL of your backend API
+              method: 'POST',  // HTTP method for sending data
+              headers: {
+                'Content-Type': 'application/json',  // Set the content type as JSON
+              },
+              body: JSON.stringify(data),  // Convert data to JSON format before sending
+            })
+            .then(response => response.json())  // Handle response from the server
+            .then(data => {
+              alert('Service request submitted successfully!');
+            })
+            .catch(error => {
+              alert('Error submitting request');
+              console.error('Error:', error);  // Log the error for debugging
+            });
+          });
+        </script>
+
+        
+
+    </div>
+    <script src="service-request.js"></script>
+   
+    </body>
+</html>

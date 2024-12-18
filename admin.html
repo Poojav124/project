@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Service Booking App</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- Login Section -->
+  <div id="loginSection">
+    <h1>Car Service Booking App</h1>
+    <form id="loginForm">
+      <h2>Admin Login</h2>
+      <label for="loginUsername">Username:</label>
+      <input type="text" id="loginUsername" required>
+      <label for="loginPassword">Password:</label>
+      <input type="password" id="loginPassword" required>
+      <button type="submit">Login</button>
+      <p id="loginError" class="error"></p>
+    </form>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminDashboard" class="hidden">
+    <h2>Admin Dashboard</h2>
+    <div>
+      <label for="filterDate">Filter by Date:</label>
+      <input type="date" id="filterDate">
+      <button id="filterButton">Filter</button>
+    </div>
+    <h3>Appointments</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="appointmentsTable"></tbody>
+    </table>
+    <button id="logout-admin">Logout</button>
+  </div>
+
+  <script src="admin.js"></script>
+
+  
+</body>
+</html>

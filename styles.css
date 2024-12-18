@@ -1,0 +1,243 @@
+/* General reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+body.index.html
+ {
+    background-image: url('background.jpg'); /* Path to your background image */
+    background-size: cover; /* Scale image to cover the viewport */
+    background-position: center center; /* Center the image */
+    background-attachment: fixed; 
+    height: 500vh;
+    margin: 0;
+   }
+
+   .logo {
+    position: absolute;
+    top: 40px; /* Center vertically within the header */
+    right: 20px; /* Distance from the right edge */
+    transform: translateY(-50%); /* Aligns vertically to the center */
+    max-width: 100px; /* Adjust logo width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .about-section img {
+    position: absolute;
+    right: 20px; /* 20px from the right side */
+    top: 50%; /* Center image vertically */
+    transform: translateY(-50%); /* Offset by 50% of its own height */
+    max-width: 2000px; /* Make image large */
+    height: 80vh; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow effect */
+  }
+
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 20px;
+    }
+    .about-text {
+      margin-right: 0; /* Remove right margin on smaller screens */
+      margin-bottom: 20px; /* Add space below text */
+    }
+    .about-section img {
+      max-width: 1000px; /* Adjust image size for smaller screens */
+    }
+  }
+
+
+/* Navbar styling */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start;
+    background-color: #f4f4f4; /* Light background for navbar */
+    padding: 10px;
+    border-right: 1px solid #ddd; /* Optional border for separation */
+    height: 100vh;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.navbar button {
+    background-color: #007bff; /* Blue color for buttons */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Prevent overflow */
+}
+
+.navbar button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Home Page Image Styling */
+#home-image-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #home-image {
+    width: 2000%; /* Adjust width as needed */
+    max-width: 800px; /* Ensure it doesn't get too large */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+/* Content styling */
+.content {
+    margin-left: 150px; /* Adjust for the width of the navbar */
+    padding: 20px;
+    
+}
+.service-gallery {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .service-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  
+
+/* Service Details Section */
+.service-details {
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 600px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-details h2 {
+    color: #333;
+  }
+  
+  .service-details p {
+    color: #555;
+    line-height: 1.6;
+  }
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.book-now-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.book-now {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.book-now:hover {
+    background-color: #0056b3;
+}
+
+/* Popup background styling */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stays fixed on the screen */
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex; /* Enable flexbox to center the content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+/* Popup content box styling */
+.popup-content {
+    position: relative;
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1001; /* Ensures it stays above the overlay */
+}
+
+/* Close button styling */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+/* Styling the list of points */
+#popup-message {
+    list-style-type: disc;  /* Bullet points */
+    padding-left: 20px;     /* Indentation for bullets */
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.6;       /* Line height for better spacing */
+}
+
+/* Adds spacing between each list item */
+#popup-message li {
+    margin-bottom: 10px;
+}
+
+/* Service item styling */
+.services .service {
+    margin: 15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.services img {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+/* Optional: Add hover effect on service images */
+.services .service:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}

@@ -1,0 +1,96 @@
+/* Navbar styling */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: flex-start;
+    background-color: #f4f4f4; /* Light background for navbar */
+    padding: 10px;
+    border-right: 1px solid #ddd; /* Optional border for separation */
+    height: 100vh; /* Full height sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.navbar button {
+    background-color: #007bff; /* Blue color for buttons */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Prevent overflow */
+}
+
+.navbar button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Basic styling for error messages */
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+/* Base styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+/* General form styling */
+.form-container {
+    width: 80%; /* Adjust width as needed (e.g., 60%, 70%) */
+    max-width: 400px; /* Maximum width to keep it compact */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding inside the form */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form input styling */
+  .form-container input,
+  .form-container select,
+  .form-container textarea {
+    width: 100%; /* Make inputs full width */
+    padding: 8px; /* Reduce padding to make form smaller */
+    margin-bottom: 15px; /* Space between inputs */
+    font-size: 14px; /* Reduce font size */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Form label styling */
+  .form-container label {
+    font-size: 14px; /* Reduce label font size */
+    margin-bottom: 5px; /* Space between label and input */
+    display: block;
+  }
+  
+  /* Button styling */
+  .form-container button {
+    padding: 10px 20px; /* Adjust button padding */
+    font-size: 14px; /* Reduce button text size */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-container button:hover {
+    background-color: #45a049;
+  }
+  
+
